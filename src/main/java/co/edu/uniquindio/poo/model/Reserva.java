@@ -50,6 +50,7 @@ public class Reserva {
         return "Reserva [dias=" + dias + ", tarifaBasePorDia=" + tarifaBasePorDia + ", clienteReserva=" + clienteReserva
                 + ", vehiculoReserva=" + vehiculoReserva + "]";
     }
+
     
     
     

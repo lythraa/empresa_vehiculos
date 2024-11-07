@@ -7,6 +7,7 @@ public class Empresa {
     private String nombre;
     private Collection<Vehiculo> listaVehiculos = new LinkedList<>();
     private Collection<Cliente> listaClientes = new LinkedList<>();
+    private Collection<Reserva> listaReservas = new LinkedList<>();
 
     //═════════════════════════════════ <<< CRUD VEHICULO >>> ═════════════════════════════════
 
@@ -58,44 +59,92 @@ public class Empresa {
 
     public String crearCliente(Cliente NuevoCliente){
         String mensaje="";
-        Cliente ClienteEncontrado = buscarClientePorPlaca(NuevoCliente.getCedula());
+        Cliente ClienteEncontrado = buscarClientePorCedula(NuevoCliente.getCedula());
     
         if (ClienteEncontrado==null) {
             listaClientes.add(NuevoCliente);
-            mensaje = "El vehículo ha sido añadido exitosamente";
+            mensaje = "El cliente ha sido añadido exitosamente";
         } else {
-            mensaje = "El vehículo ya existe";
+            mensaje = "El cliente ya existe";
         }
         return mensaje;
     }
     
-    private Cliente buscarClientePorPlaca(String Placa){
-        return listaClientes.stream().filter(Cliente->Cliente.getCedula().equals(Placa)).findAny().get();
+    private Cliente buscarClientePorCedula(String Cedula){
+        return listaClientes.stream().filter(Cliente->Cliente.getCedula().equals(Cedula)).findAny().get();
     }
     
     public String eliminarCliente(Cliente RemoverCliente){
         String mensaje="";
-        Cliente ClienteEncontrado = buscarClientePorPlaca(RemoverCliente.getCedula());
+        Cliente ClienteEncontrado = buscarClientePorCedula(RemoverCliente.getCedula());
     
         if (ClienteEncontrado==null) {
-            mensaje="El vehículo no existe";
+            mensaje="El cliente no existe";
         } else {
             listaClientes.remove(ClienteEncontrado);
-            mensaje= "Vehículo eliminado exitosamente";
+            mensaje= "El Cliente ha sido eliminado exitosamente";
         }
         return mensaje;
     }
     
     public String actualizarCliente(Cliente ActualizarCliente){
         String mensaje="";
-        Cliente ClienteEncontrado = buscarClientePorPlaca(ActualizarCliente.getCedula());
+        Cliente ClienteEncontrado = buscarClientePorCedula(ActualizarCliente.getCedula());
     
         if (ClienteEncontrado==null) {
-            mensaje="El vehículo no existe";
+            mensaje="El cliente no existe";
         } else {
             listaClientes.remove(ClienteEncontrado);
             listaClientes.add(ActualizarCliente);
-            mensaje= "Vehículo actualizar exitosamente";
+            mensaje= "Cliente actualizado exitosamente";
+        }
+        return mensaje;
+    }
+
+    //═════════════════════════════════ <<< CRUD RESERVA >>> ═════════════════════════════════
+
+        
+    public String crearReserva(Reserva NuevaReserva){
+        String mensaje="";
+        Reserva ReservaEncontrado = buscarReserva(NuevaReserva);
+
+        if (ReservaEncontrado==null) {
+            listaReservas.add(NuevaReserva);
+            mensaje = "La reserva ha sido añadida exitosamente";
+        } else {
+            mensaje = "La reserva ya existe";
+        }
+        return mensaje;
+    }
+
+    public Reserva buscarReserva(Reserva BuscarReserva){
+        return listaReservas.stream().filter(Reserva -> Reserva.equals(BuscarReserva)).findAny().orElse(null);
+}
+    
+
+    public String eliminarReserva(Reserva RemoverReserva){
+        String mensaje="";
+        Reserva ReservaEncontrado = buscarReserva(RemoverReserva);
+
+        if (ReservaEncontrado==null) {
+            mensaje="La reserva no existe";
+        } else {
+            listaReservas.remove(ReservaEncontrado);
+            mensaje= "Reserva eliminada exitosamente";
+        }
+        return mensaje;
+    }
+
+    public String actualizarReserva(Reserva ActualizarReserva){
+        String mensaje="";
+        Reserva ReservaEncontrado = buscarReserva(ActualizarReserva);
+
+        if (ReservaEncontrado==null) {
+            mensaje="La reserva no existe";
+        } else {
+            listaReservas.remove(ReservaEncontrado);
+            listaReservas.add(ActualizarReserva);
+            mensaje= "Reserva actualizada exitosamente";
         }
         return mensaje;
     }
