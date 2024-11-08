@@ -30,7 +30,7 @@ public class Moto extends Vehiculo{
                 break;
         }
 
-        double total = (reserva.gettarifaBasePorDia()+tarifaAdicional)*reserva.getDias();
+        double total = (reserva.getTarifaBasePorDia()+tarifaAdicional)*reserva.getDias();
         return total;
     }
     

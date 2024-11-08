@@ -18,7 +18,7 @@ public class Auto extends Vehiculo{
 
     @Override
     public double calcularReserva(Reserva reserva) {
-        double total= reserva.gettarifaBasePorDia()*reserva.getDias();
+        double total= reserva.getTarifaBasePorDia()*reserva.getDias();
         return total;
     }
 

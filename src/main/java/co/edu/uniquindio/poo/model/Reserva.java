@@ -37,11 +37,11 @@ public class Reserva {
         this.vehiculoReserva = vehiculoReserva;
     }
 
-    public double gettarifaBasePorDia() {
+    public double getTarifaBasePorDia() {
         return tarifaBasePorDia;
     }
 
-    public void settarifaBasePorDia(double tarifaBasePorDia) {
+    public void setTarifaBasePorDia(double tarifaBasePorDia) {
         this.tarifaBasePorDia = tarifaBasePorDia;
     }
 

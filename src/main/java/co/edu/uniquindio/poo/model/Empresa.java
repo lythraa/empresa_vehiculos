@@ -25,7 +25,7 @@ public class Empresa {
     }
 
     private Vehiculo buscarVehiculoPorPlaca(String Placa){
-        return listaVehiculos.stream().filter(vehiculo->vehiculo.getPlaca().equals(Placa)).findAny().get();
+        return listaVehiculos.stream().filter(vehiculo->vehiculo.getPlaca().equals(Placa)).findAny().orElse(null);
     }
 
     public String eliminarVehiculo(Vehiculo RemoverVehiculo){
@@ -71,7 +71,7 @@ public class Empresa {
     }
     
     private Cliente buscarClientePorCedula(String Cedula){
-        return listaClientes.stream().filter(Cliente->Cliente.getCedula().equals(Cedula)).findAny().get();
+        return listaClientes.stream().filter(Cliente->Cliente.getCedula().equals(Cedula)).findAny().orElse(null);
     }
     
     public String eliminarCliente(Cliente RemoverCliente){
@@ -166,6 +166,30 @@ public class Empresa {
     @Override
     public String toString() {
         return "Empresa [nombre=" + nombre + "]";
+    }
+
+    public Collection<Vehiculo> getListaVehiculos() {
+        return listaVehiculos;
+    }
+
+    public void setListaVehiculos(Collection<Vehiculo> listaVehiculos) {
+        this.listaVehiculos = listaVehiculos;
+    }
+
+    public Collection<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public void setListaClientes(Collection<Cliente> listaClientes) {
+        this.listaClientes = listaClientes;
+    }
+
+    public Collection<Reserva> getListaReservas() {
+        return listaReservas;
+    }
+
+    public void setListaReservas(Collection<Reserva> listaReservas) {
+        this.listaReservas = listaReservas;
     }
 
     

@@ -18,7 +18,7 @@ public class Camioneta extends Vehiculo{
 
     @Override
     public double calcularReserva(Reserva reserva) {
-        double tarifaBase = reserva.gettarifaBasePorDia() * reserva.getDias();
+        double tarifaBase = reserva.getTarifaBasePorDia() * reserva.getDias();
         double extraPorTonelada = (kilosCapacidad / 1000) * 0.10;
         return tarifaBase * (1 + extraPorTonelada);
     }
