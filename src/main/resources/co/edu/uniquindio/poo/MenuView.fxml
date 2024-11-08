@@ -7,10 +7,8 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.controllers.MenuController">
     <children>
-        <!-- Título centrado -->
         <Label layoutX="115.0" layoutY="37.0" style="-fx-font-family: Arial; -fx-font-size: 24px; -fx-font-weight: bold;" text="Menú Principal" />
 
-        <!-- VBox para centrar los botones -->
         <VBox alignment="CENTER" layoutX="0.0" layoutY="80.0" prefHeight="300" prefWidth="400" spacing="20">
    <children>
                <Button fx:id="btnCliente" onAction="#handleGestionarCliente" prefWidth="180.0" text="Gestionar Cliente" />

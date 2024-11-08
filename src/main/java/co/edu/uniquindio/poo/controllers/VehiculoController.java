@@ -31,42 +31,36 @@ public class VehiculoController {
     @FXML
     private Button crearVehiculoButton;
 
-    private Empresa empresa; // Empresa para gestionar los vehículos
+    private Empresa empresa;
 
-    private Vehiculo vehiculoSeleccionado; // Vehículo que se creará
+    private Vehiculo vehiculoSeleccionado;
 
     public VehiculoController() {
-        // Crear una empresa ficticia para demostración
         empresa = new Empresa("Empresa de Alquiler");
     }
 
     @FXML
     public void initialize() {
-        // Configuración de los ítems del menú
         autoMenuItem.setOnAction(this::handleSeleccionarAuto);
         camionetaMenuItem.setOnAction(this::handleSeleccionarCamioneta);
         motoMenuItem.setOnAction(this::handleSeleccionarMoto);
     }
 
-    // Acción para seleccionar un Auto
     private void handleSeleccionarAuto(ActionEvent event) {
         tipoVehiculoMenuButton.setText("Auto");
-        vehiculoSeleccionado = new Auto("ABC123", "Toyota", "Corolla", (byte) 4); // Datos de ejemplo
+        vehiculoSeleccionado = new Auto("ABC123", "Toyota", "Corolla", (byte) 4);
     }
 
-    // Acción para seleccionar una Camioneta
     private void handleSeleccionarCamioneta(ActionEvent event) {
         tipoVehiculoMenuButton.setText("Camioneta");
-        vehiculoSeleccionado = new Camioneta("XYZ456", "Ford", "Ranger", 1200.0); // Datos de ejemplo
+        vehiculoSeleccionado = new Camioneta("XYZ456", "Ford", "Ranger", 1200.0);
     }
 
-    // Acción para seleccionar una Moto
     private void handleSeleccionarMoto(ActionEvent event) {
         tipoVehiculoMenuButton.setText("Moto");
-        vehiculoSeleccionado = new Moto("MOTO789", "Honda", "CBR500", TipoCaja.AUTOMATICA); // Datos de ejemplo
+        vehiculoSeleccionado = new Moto("MOTO789", "Honda", "CBR500", TipoCaja.AUTOMATICA);
     }
 
-    // Acción para crear un nuevo vehículo
     @FXML
     private void handleCrearVehiculo(ActionEvent event) {
         if (placaField.getText().trim().isEmpty() || marcaField.getText().trim().isEmpty() || modeloField.getText().trim().isEmpty()) {

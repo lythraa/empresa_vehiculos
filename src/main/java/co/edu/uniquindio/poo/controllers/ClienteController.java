@@ -16,19 +16,16 @@ public class ClienteController {
     @FXML
     private Button crearClienteButton;
 
-    private Empresa empresa; // Empresa para gestionar clientes
+    private Empresa empresa;
 
     public ClienteController() {
-        // Crear una empresa ficticia para demostración
         empresa = new Empresa("Empresa de Alquiler");
     }
 
     @FXML
     public void initialize() {
-        // Inicializar cualquier comportamiento específico de la vista si es necesario
     }
 
-    // Acción para crear un nuevo cliente
     @FXML
     private void handleCrearCliente(ActionEvent event) {
         String nombreCliente = nombreClienteField.getText().trim();
@@ -40,7 +37,7 @@ public class ClienteController {
         }
 
         Cliente cliente = new Cliente(nombreCliente, cedulaCliente);
-        empresa.crearCliente(cliente); // Agregar el cliente a la empresa
+        empresa.crearCliente(cliente);
         mostrarAlerta("Éxito", "Cliente creado con éxito.");
         limpiarCampos();
     }

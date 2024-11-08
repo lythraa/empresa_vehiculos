@@ -7,7 +7,6 @@ import javafx.scene.control.*;
 
 public class ReservaController {
 
-    // Elementos de la interfaz
     @FXML
     private TextField nombreClienteField;
 
@@ -35,43 +34,36 @@ public class ReservaController {
     @FXML
     private TextField costoField;
 
-    private Empresa empresa; // Empresa donde se gestionarán los vehículos, clientes y reservas
-    private Cliente clienteSeleccionado; // Cliente seleccionado
-    private Vehiculo vehiculoSeleccionado; // Vehículo seleccionado
+    private Empresa empresa;
+    private Cliente clienteSeleccionado;
+    private Vehiculo vehiculoSeleccionado;
 
     public ReservaController() {
-        // Crear una empresa ficticia para demostración (podría ser pasada desde otro controlador)
         empresa = new Empresa("Empresa de Alquiler");
     }
 
-    // Método para inicializar el controlador y configurar las opciones de vehículo
     @FXML
     public void initialize() {
-        // Configuración de los ítems del menú
         autoMenuItem.setOnAction(this::handleSeleccionarAuto);
         camionetaMenuItem.setOnAction(this::handleSeleccionarCamioneta);
         motoMenuItem.setOnAction(this::handleSeleccionarMoto);
     }
 
-    // Acción para seleccionar un Auto
     private void handleSeleccionarAuto(ActionEvent event) {
-        vehiculoSeleccionado = new Auto("ABC123", "Toyota", "Corolla", (byte) 4); // Datos de ejemplo
+        vehiculoSeleccionado = new Auto("ABC123", "Toyota", "Corolla", (byte) 4);
         vehiculoMenuButton.setText("Auto - " + vehiculoSeleccionado.getMarca() + " " + vehiculoSeleccionado.getModelo());
     }
 
-    // Acción para seleccionar una Camioneta
     private void handleSeleccionarCamioneta(ActionEvent event) {
-        vehiculoSeleccionado = new Camioneta("XYZ456", "Ford", "Ranger", 1200.0); // Datos de ejemplo
+        vehiculoSeleccionado = new Camioneta("XYZ456", "Ford", "Ranger", 1200.0);
         vehiculoMenuButton.setText("Camioneta - " + vehiculoSeleccionado.getMarca() + " " + vehiculoSeleccionado.getModelo());
     }
 
-    // Acción para seleccionar una Moto
     private void handleSeleccionarMoto(ActionEvent event) {
-        vehiculoSeleccionado = new Moto("MOTO789", "Honda", "CBR500", TipoCaja.AUTOMATICA); // Datos de ejemplo
+        vehiculoSeleccionado = new Moto("MOTO789", "Honda", "CBR500", TipoCaja.AUTOMATICA);
         vehiculoMenuButton.setText("Moto - " + vehiculoSeleccionado.getMarca() + " " + vehiculoSeleccionado.getModelo());
     }
 
-    // Acción para realizar el alquiler
     @FXML
     private void handleRealizarAlquiler(ActionEvent event) {
         String nombreCliente = nombreClienteField.getText().trim();
@@ -86,14 +78,12 @@ public class ReservaController {
         try {
             int diasPrestamo = Integer.parseInt(diasPrestamoText);
 
-            // Crear cliente si no existe
             clienteSeleccionado = empresa.buscarClientePorCedula(cedulaCliente);
             if (clienteSeleccionado == null) {
                 clienteSeleccionado = new Cliente(nombreCliente, cedulaCliente);
                 empresa.crearCliente(clienteSeleccionado);
             }
 
-            // Crear y calcular costo de la reserva
             Reserva reserva = new Reserva(diasPrestamo, 50.0, clienteSeleccionado, vehiculoSeleccionado);
             empresa.crearReserva(reserva);
 
@@ -108,7 +98,6 @@ public class ReservaController {
 
     
 
-    // Método para mostrar alertas
     private void mostrarAlerta(String titulo, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(titulo);

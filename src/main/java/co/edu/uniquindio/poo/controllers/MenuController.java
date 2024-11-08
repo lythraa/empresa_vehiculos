@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 
 public class MenuController {
 
-    // Método para cargar la vista de "Gestionar Cliente"
     @FXML
     private void handleGestionarCliente(ActionEvent event) {
         try {
@@ -24,7 +23,6 @@ public class MenuController {
         }
     }
 
-    // Método para cargar la vista de "Gestionar Reserva"
     @FXML
     private void handleGestionarReserva(ActionEvent event) {
         try {
@@ -39,7 +37,6 @@ public class MenuController {
         }
     }
 
-    // Método para cargar la vista de "Gestionar Vehículo"
     @FXML
     private void handleGestionarVehiculo(ActionEvent event) {
         try {
