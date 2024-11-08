@@ -1,42 +1,55 @@
 package co.edu.uniquindio.poo.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.layout.AnchorPane;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
-import java.io.IOException;
 
 public class MenuController {
 
-    // Método para manejar la acción de ir a la vista de Cliente
+    // Método para cargar la vista de "Gestionar Cliente"
     @FXML
-    private void handleClienteView() {
-        cargarVista("ClienteView.fxml");
-    }
-
-    // Método para manejar la acción de ir a la vista de Vehículo
-    @FXML
-    private void handleVehiculoView() {
-        cargarVista("VehiculoView.fxml");
-    }
-
-    // Método para manejar la acción de ir a la vista de Reserva
-    @FXML
-    private void handleReservaView() {
-        cargarVista("ReservaView.fxml");
-    }
-
-    // Método común para cargar cualquier vista
-    private void cargarVista(String nombreVista) {
+    private void handleGestionarCliente(ActionEvent event) {
         try {
-            // Cargar la vista correspondiente
-            AnchorPane root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/poo/views/" + nombreVista));
-            Stage stage = (Stage) root.getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/ClienteView.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Gestionar Cliente");
             stage.show();
-        } catch (IOException e) {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Método para cargar la vista de "Gestionar Reserva"
+    @FXML
+    private void handleGestionarReserva(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/ReservaView.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Gestionar Reserva");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Método para cargar la vista de "Gestionar Vehículo"
+    @FXML
+    private void handleGestionarVehiculo(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/VehiculoView.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Gestionar Vehículo");
+            stage.show();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
