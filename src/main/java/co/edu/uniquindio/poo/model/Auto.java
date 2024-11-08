@@ -15,10 +15,10 @@ public class Auto extends Vehiculo{
     public void setPuertas(byte puertas) {
         this.puertas = puertas;
     }
-
+    
     @Override
     public double calcularReserva(Reserva reserva) {
-        double total= reserva.getTarifaBasePorDia()*reserva.getDias();
+        double total = reserva.getTarifaBasePorDia()*reserva.getDias();
         return total;
     }
 

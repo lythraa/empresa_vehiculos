@@ -70,7 +70,7 @@ public class Empresa {
         return mensaje;
     }
     
-    private Cliente buscarClientePorCedula(String Cedula){
+    public Cliente buscarClientePorCedula(String Cedula){
         return listaClientes.stream().filter(Cliente->Cliente.getCedula().equals(Cedula)).findAny().orElse(null);
     }
     

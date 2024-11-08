@@ -1,38 +1,34 @@
 package co.edu.uniquindio.poo.app;
 
-//import co.edu.uniquindio.poo.controllers.ReservaController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class App extends Application {
 
     @Override
-    public void start(Stage stage) throws IOException {
-        // Cargar el archivo FXML
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/ReservaView.fxml"));
-        
-        // Establecer el controlador para el archivo FXML
-       // fxmlLoader.setController(new ReservaController());
+    public void start(Stage primaryStage) {
+        try {
+            // Carga el archivo FXML de la interfaz
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/ReservaView.fxml"));
+            Parent root = loader.load();
 
-        // Crear la escena y cargarla en el escenario
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        
-        // Establecer el título de la ventana
-        stage.setTitle("Sistema de Alquiler de Vehículos");
-        
-        // Establecer la escena en el escenario (ventana)
-        stage.setScene(scene);
-        
-        // Mostrar la ventana
-        stage.show();
+            // Configura la escena con el archivo FXML cargado
+            Scene scene = new Scene(root);
+
+            // Configura el escenario (Stage)
+            primaryStage.setTitle("Sistema de Reservas de Vehículos");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar la vista: " + e.getMessage());
+        }
     }
 
     public static void main(String[] args) {
-        // Lanzar la aplicación JavaFX
         launch(args);
     }
 }
