@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.controllers.ClienteViewController">
+    <children>
+        <Label layoutX="150.0" layoutY="30.0" text="Crear Cliente" />
+        
+        <Label layoutX="50.0" layoutY="80.0" text="Nombre: " />
+        <TextField fx:id="nombreClienteField" layoutX="150.0" layoutY="75.0" prefHeight="31.0" prefWidth="280.0" />
+        
+        <Label layoutX="50.0" layoutY="120.0" text="Cédula: " />
+        <TextField fx:id="cedulaField" layoutX="150.0" layoutY="115.0" prefHeight="31.0" prefWidth="280.0" />
+
+        <Button fx:id="crearClienteButton" layoutX="200.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleCrearCliente" prefHeight="31.0" prefWidth="167.0" text="Crear Cliente" />
+    </children>
+</AnchorPane>

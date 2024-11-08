@@ -11,8 +11,8 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            // Carga el archivo FXML de la interfaz
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/ReservaView.fxml"));
+            // Cargar el archivo FXML de la vista del menú
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/MenuView.fxml"));
             Parent root = loader.load();
 
             // Configura la escena con el archivo FXML cargado

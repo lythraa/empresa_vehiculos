@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.controllers.VehiculoViewController">
+    <children>
+        <Label layoutX="150.0" layoutY="30.0" text="Crear Vehículo" />
+        
+        <Label layoutX="50.0" layoutY="80.0" text="Placa: " />
+        <TextField fx:id="placaField" layoutX="150.0" layoutY="75.0" prefHeight="31.0" prefWidth="280.0" />
+        
+        <Label layoutX="50.0" layoutY="120.0" text="Marca: " />
+        <TextField fx:id="marcaField" layoutX="150.0" layoutY="115.0" prefHeight="31.0" prefWidth="280.0" />
+        
+        <Label layoutX="50.0" layoutY="160.0" text="Modelo: " />
+        <TextField fx:id="modeloField" layoutX="150.0" layoutY="155.0" prefHeight="31.0" prefWidth="280.0" />
+        
+        <Label layoutX="50.0" layoutY="200.0" text="Tipo de Vehículo: " />
+        <MenuButton fx:id="tipoVehiculoMenuButton" layoutX="150.0" layoutY="195.0" prefHeight="31.0" prefWidth="280.0">
+            <items>
+                <MenuItem fx:id="autoMenuItem" text="Auto" />
+                <MenuItem fx:id="camionetaMenuItem" text="Camioneta" />
+                <MenuItem fx:id="motoMenuItem" text="Moto" />
+            </items>
+        </MenuButton>
+
+        <Button fx:id="crearVehiculoButton" layoutX="200.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleCrearVehiculo" prefHeight="31.0" prefWidth="167.0" text="Crear Vehículo" />
+    </children>
+</AnchorPane>
