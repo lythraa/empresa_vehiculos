@@ -100,22 +100,13 @@ public class ReservaController {
             double costo = vehiculoSeleccionado.calcularReserva(reserva);
             costoField.setText(String.format("%.2f", costo));
 
-            limpiarCampos();
 
         } catch (NumberFormatException e) {
             mostrarAlerta("Error", "El campo de días de préstamo debe ser un número válido.");
         }
     }
 
-    // Método para limpiar campos después de realizar una reserva
-    private void limpiarCampos() {
-        nombreClienteField.clear();
-        cedulaField.clear();
-        diasField.clear();
-        vehiculoMenuButton.setText("Vehículo");
-        vehiculoSeleccionado = null;
-        costoField.clear();
-    }
+    
 
     // Método para mostrar alertas
     private void mostrarAlerta(String titulo, String mensaje) {
